@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coupon-app
+  labels:
+    app: coupon-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coupon-app
+  template:
+    metadata:
+      labels:
+        app: coupon-app
+    spec:
+      containers:
+      - name: coupon-app
+        image: amitu2021/couponservice
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"

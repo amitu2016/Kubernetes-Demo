@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: firstpod
+  labels:
+    app: firstpod
+    name: firstpod
+    release: stable
+  annotations:
+    description: "This is my first pod"
+spec:
+  containers:
+  - name: db
+    image: redis
+    resources:
+      limits:
+        memory: "256Mi"
+        cpu: "500m"
+  - name: web
+    image: nginx
+    resources:
+      limits:
+        memory: "256Mi"
+        cpu: "500m"
